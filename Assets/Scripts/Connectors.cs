@@ -7,10 +7,19 @@ public class Connectors : MonoBehaviour
     public Mesh gizmoMesh;
     public Transform[] connectorList;
 
+    public int maxRoooms = 2;
+    public static int rooms = 0;
+
 
     public Transform GetPointWorldPos(int index)
 	{
         return connectorList[index];
+	}
+
+    public void MakeConnectionTo(Transform room, Transform fromConnector, Transform toConnector)
+	{
+        room.position = fromConnector.position + toConnector.localPosition;
+
 	}
 
 
@@ -30,15 +39,4 @@ public class Connectors : MonoBehaviour
 		}
 	}
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
